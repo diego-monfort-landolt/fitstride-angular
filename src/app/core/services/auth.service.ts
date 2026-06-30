@@ -1,10 +1,12 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private readonly storageKey = 'fitstride_is_logged_in';
+  private readonly platformId = inject(PLATFORM_ID);
 
   isLoggedIn = signal<boolean>(this.getInitialLoginState());
 
@@ -12,7 +14,10 @@ export class AuthService {
     const isValidUser = username === 'user1' && password === '123456';
 
     if (isValidUser) {
-      localStorage.setItem(this.storageKey, 'true');
+      if (this.isBrowser()) {
+        localStorage.setItem(this.storageKey, 'true');
+      }
+
       this.isLoggedIn.set(true);
       return true;
     }
@@ -21,11 +26,22 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem(this.storageKey);
+    if (this.isBrowser()) {
+      localStorage.removeItem(this.storageKey);
+    }
+
     this.isLoggedIn.set(false);
   }
 
   private getInitialLoginState(): boolean {
+    if (!this.isBrowser()) {
+      return false;
+    }
+
     return localStorage.getItem(this.storageKey) === 'true';
+  }
+
+  private isBrowser(): boolean {
+    return isPlatformBrowser(this.platformId);
   }
 }
