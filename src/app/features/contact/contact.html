@@ -1,1 +1,80 @@
-<p>contact works!</p>
+<section class="contact-page">
+  <div class="contact-layout">
+    <div class="contact-info">
+      <span class="eyebrow">Get in touch</span>
+
+      <h1>Kontakt</h1>
+
+      <p>
+        Dieses Formular zeigt Frontend-Validierung, saubere UX und eine moderne
+        Formularstruktur ohne Backend.
+      </p>
+
+      <div class="info-card">
+        <strong>Portfolio-Ziel</strong>
+        <span>Angular · UX · Testing · Clean Architecture</span>
+      </div>
+    </div>
+
+    <form class="contact-card" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+      <label>
+        Name
+        <input
+          type="text"
+          name="name"
+          required
+          minlength="3"
+          [(ngModel)]="name"
+          placeholder="Dein Name"
+          #nameInput="ngModel"
+        />
+      </label>
+
+      @if (nameInput.invalid && nameInput.touched) {
+        <div class="error">Name muss mindestens 3 Zeichen haben.</div>
+      }
+
+      <label>
+        E-Mail
+        <input
+          type="email"
+          name="email"
+          required
+          email
+          [(ngModel)]="email"
+          placeholder="du@example.com"
+          #emailInput="ngModel"
+        />
+      </label>
+
+      @if (emailInput.invalid && emailInput.touched) {
+        <div class="error">Bitte gib eine gültige E-Mail-Adresse ein.</div>
+      }
+
+      <label>
+        Nachricht
+        <textarea
+          name="message"
+          required
+          minlength="10"
+          rows="6"
+          [(ngModel)]="message"
+          placeholder="Schreibe deine Nachricht..."
+          #messageInput="ngModel"
+        ></textarea>
+      </label>
+
+      @if (messageInput.invalid && messageInput.touched) {
+        <div class="error">Nachricht muss mindestens 10 Zeichen haben.</div>
+      }
+
+      @if (successMessage) {
+        <div class="success">{{ successMessage }}</div>
+      }
+
+      <button type="submit" [disabled]="contactForm.invalid">
+        Nachricht senden
+      </button>
+    </form>
+  </div>
+</section>
