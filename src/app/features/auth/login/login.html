@@ -1,1 +1,54 @@
-<p>login works!</p>
+<section class="login-page">
+  <div class="login-card">
+    <span class="eyebrow">Welcome back</span>
+
+    <h1>Login</h1>
+
+    <p>
+      Melde dich mit dem lokalen Testuser an, um später das geschützte Dashboard
+      zu öffnen.
+    </p>
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <label>
+        Benutzername
+        <input
+          type="text"
+          name="username"
+          required
+          [(ngModel)]="username"
+          placeholder="user1"
+        />
+      </label>
+
+      <label>
+        Passwort
+        <input
+          type="password"
+          name="password"
+          required
+          [(ngModel)]="password"
+          placeholder="123456"
+        />
+      </label>
+
+      @if (errorMessage) {
+        <div class="error">
+          {{ errorMessage }}
+        </div>
+      }
+
+      <button type="submit" [disabled]="loginForm.invalid">
+        Einloggen
+      </button>
+    </form>
+
+    <small>
+      Testuser: <strong>user1</strong> / <strong>123456</strong>
+    </small>
+
+    <a routerLink="/register" class="register-link">
+      Noch kein Konto? Registrieren
+    </a>
+  </div>
+</section>
