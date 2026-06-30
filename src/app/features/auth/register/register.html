@@ -1,1 +1,87 @@
-<p>register works!</p>
+<section class="register-page">
+  <div class="register-card">
+    <span class="eyebrow">Join FitStride</span>
+
+    <h1>Registrieren</h1>
+
+    <p>
+      Erstelle lokal ein Demo-Profil. Die Registrierung ist nur Frontend-Logik
+      und speichert aktuell keine echten Benutzerdaten.
+    </p>
+
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <label>
+        Name
+        <input
+          type="text"
+          name="name"
+          required
+          minlength="3"
+          [(ngModel)]="name"
+          placeholder="Dein Name"
+          #nameInput="ngModel"
+        />
+      </label>
+
+      @if (nameInput.invalid && nameInput.touched) {
+        <div class="error">Name muss mindestens 3 Zeichen haben.</div>
+      }
+
+      <label>
+        E-Mail
+        <input
+          type="email"
+          name="email"
+          required
+          email
+          [(ngModel)]="email"
+          placeholder="du@example.com"
+          #emailInput="ngModel"
+        />
+      </label>
+
+      @if (emailInput.invalid && emailInput.touched) {
+        <div class="error">Bitte gib eine gültige E-Mail-Adresse ein.</div>
+      }
+
+      <label>
+        Passwort
+        <input
+          type="password"
+          name="password"
+          required
+          minlength="6"
+          [(ngModel)]="password"
+          placeholder="Mindestens 6 Zeichen"
+          #passwordInput="ngModel"
+        />
+      </label>
+
+      @if (passwordInput.invalid && passwordInput.touched) {
+        <div class="error">Passwort muss mindestens 6 Zeichen haben.</div>
+      }
+
+      <label class="checkbox">
+        <input
+          type="checkbox"
+          name="terms"
+          required
+          [(ngModel)]="acceptedTerms"
+        />
+        Ich akzeptiere die Demo-Bedingungen.
+      </label>
+
+      @if (successMessage) {
+        <div class="success">{{ successMessage }}</div>
+      }
+
+      <button type="submit" [disabled]="registerForm.invalid">
+        Konto erstellen
+      </button>
+    </form>
+
+    <a routerLink="/login" class="login-link">
+      Schon registriert? Zum Login
+    </a>
+  </div>
+</section>

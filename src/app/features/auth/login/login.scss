@@ -6,6 +6,13 @@
   color: #f8fafc;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
 .login-page {
   min-height: calc(100vh - 160px);
   display: grid;
@@ -62,12 +69,19 @@ label {
 
 input {
   width: 100%;
-  padding: 0.9rem 1rem;
+  max-width: 100%;
+  display: block;
+  padding: 0.95rem 1rem;
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(2, 6, 23, 0.65);
+  background: rgba(2, 6, 23, 0.72);
   color: #f8fafc;
   outline: none;
+  font-size: 1rem;
+
+  &::placeholder {
+    color: #64748b;
+  }
 
   &:focus {
     border-color: rgba(34, 197, 94, 0.75);
