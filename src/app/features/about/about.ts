@@ -4,8 +4,17 @@ import { Component } from '@angular/core';
   selector: 'app-about',
   imports: [],
   templateUrl: './about.html',
-  styleUrl: './about.scss',
+  styleUrl: './about.scss'
 })
 export class About {
-
+  skills = [
+    'Angular',
+    'TypeScript',
+    'SCSS',
+    'Responsive Design',
+    'Clean Architecture',
+    'Testing',
+    'UX/UI',
+    'SEO'
+  ];
 }

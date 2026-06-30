@@ -1,1 +1,70 @@
-<p>about works!</p>
+<section class="about-page">
+  <div class="about-hero">
+    <div class="about-hero__content">
+      <span class="eyebrow">About this project</span>
+
+      <h1>
+        Ich entwickle moderne Webanwendungen mit Fokus auf saubere Architektur,
+        UX und Qualität.
+      </h1>
+
+      <p>
+        Dieses Projekt zeigt meine Leidenschaft für Programmierung,
+        Problemlösung und moderne Angular-Entwicklung. FitStride ist bewusst als
+        professionelles Portfolio-Projekt aufgebaut: responsiv, strukturiert,
+        testbar und erweiterbar.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <span class="about-card__label">Developer Mindset</span>
+      <h2>Build. Test. Improve.</h2>
+      <p>
+        Mein Ziel ist es, nicht nur schöne Interfaces zu bauen, sondern auch
+        wartbaren Code, klare Strukturen und echte Nutzerfreundlichkeit.
+      </p>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <h2>Technologien & Schwerpunkte</h2>
+
+    <div class="skills-grid">
+      @for (skill of skills; track skill) {
+        <span>{{ skill }}</span>
+      }
+    </div>
+  </div>
+
+  <div class="timeline">
+    <article>
+      <strong>01</strong>
+      <div>
+        <h3>Frontend Engineering</h3>
+        <p>
+          Komponenten, Routing, Services, Forms, Guards und moderne SCSS-Struktur.
+        </p>
+      </div>
+    </article>
+
+    <article>
+      <strong>02</strong>
+      <div>
+        <h3>Quality Mindset</h3>
+        <p>
+          Verständlicher Code, klare Validierungen, Testing und saubere User Flows.
+        </p>
+      </div>
+    </article>
+
+    <article>
+      <strong>03</strong>
+      <div>
+        <h3>Portfolio Ready</h3>
+        <p>
+          GitHub-tauglich, professionell dokumentiert und später einfach erweiterbar.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
