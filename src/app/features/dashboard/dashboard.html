@@ -1,1 +1,60 @@
 <p>dashboard works!</p>
+<section class="dashboard-page">
+  <div class="dashboard-header">
+    <div>
+      <span class="eyebrow">Protected Area</span>
+      <h1>Dein Running Dashboard</h1>
+      <p>
+        Wähle dein Trainingsziel und erhalte lokal berechnete Empfehlungen.
+      </p>
+    </div>
+
+    <button type="button" class="logout-btn" (click)="logout()">
+      Logout
+    </button>
+  </div>
+
+  <div class="interest-panel">
+    <h2>Interessen auswählen</h2>
+
+    <div class="chips">
+      @for (interest of interests; track interest) {
+        <button
+          type="button"
+          [class.active]="selectedInterest === interest"
+          (click)="selectInterest(interest)"
+        >
+          {{ interest }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <article class="ai-card">
+    <span>AI-like Recommendation</span>
+    <h2>{{ getRecommendation() }}</h2>
+  </article>
+
+  <div class="routes-grid">
+    @for (route of routes; track route.name) {
+      <article class="route-card">
+        <img [src]="route.image" [alt]="route.name" />
+
+        <div>
+          <h3>{{ route.name }}</h3>
+
+          <ul>
+            <li>{{ route.distance }}</li>
+            <li>{{ route.level }}</li>
+            <li>{{ route.time }}</li>
+          </ul>
+        </div>
+      </article>
+    }
+  </div>
+
+  <div class="map-placeholder">
+    <span>Google Maps Placeholder</span>
+    <p>Hier könnte später eine Kartenintegration oder ein statischer Routenplan erscheinen.</p>
+  </div>
+</section>
