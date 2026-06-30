@@ -67,3 +67,7 @@ http://localhost:4200
 ## Autor
 
 Dieses Projekt wird als persönliches Portfolio-Projekt entwickelt, um moderne Angular-Architektur, sauberen Code, responsive UI und Testing-Kenntnisse zu zeigen.
+
+## Fotos
+
+![alt text](image.png)
