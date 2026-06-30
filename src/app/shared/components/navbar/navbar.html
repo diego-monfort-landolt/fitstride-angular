@@ -1,1 +1,18 @@
-<p>navbar works!</p>
+<header class="navbar">
+  <a routerLink="/" class="logo" (click)="closeMenu()">
+    <span class="logo__icon">F</span>
+    <span>FitStride</span>
+  </a>
+
+  <button class="menu-btn" type="button" (click)="toggleMenu()">
+    ☰
+  </button>
+
+  <nav class="nav-links" [class.nav-links--open]="isMenuOpen">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+    <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+    <a routerLink="/dashboard" routerLinkActive="active" (click)="closeMenu()">Dashboard</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Kontakt</a>
+    <a routerLink="/login" class="login-link" (click)="closeMenu()">Login</a>
+  </nav>
+</header>

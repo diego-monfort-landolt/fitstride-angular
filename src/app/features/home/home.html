@@ -1,1 +1,103 @@
-<p>home works!</p>
+<section class="hero">
+  <div class="hero__content">
+    <span class="eyebrow">Run smarter. Train stronger.</span>
+
+    <h1>
+      Dein digitales Fitness- & Running-Dashboard
+    </h1>
+
+    <p>
+      FitStride kombiniert moderne Webtechnologie, Mock-Daten, responsive UI
+      und smarte Trainingsempfehlungen in einem professionellen Angular-Projekt.
+    </p>
+
+    <div class="hero__actions">
+      <a routerLink="/dashboard" class="btn btn--primary">Dashboard öffnen</a>
+      <a routerLink="/about" class="btn btn--secondary">Mehr erfahren</a>
+    </div>
+
+    <div class="stats">
+      @for (stat of stats; track stat.label) {
+        <article class="stat-card">
+          <strong>{{ stat.value }}</strong>
+          <span>{{ stat.label }}</span>
+        </article>
+      }
+    </div>
+  </div>
+
+  <div class="hero__visual">
+    <img
+      src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=80"
+      alt="Person läuft auf einer Straße"
+    />
+
+    <div class="floating-card">
+      <span>Heute empfohlen</span>
+      <strong>5 km Easy Run</strong>
+      <small>Pace stabilisieren · 32 Minuten</small>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__header">
+    <span class="eyebrow">Fitness Features</span>
+    <h2>Alles, was ein modernes Frontend-Projekt zeigen sollte</h2>
+  </div>
+
+  <div class="feature-grid">
+    <article class="feature-card">
+      <img
+        src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80"
+        alt="Fitness Training mit Gewichten"
+      />
+      <div>
+        <h3>Workout Planung</h3>
+        <p>Saubere Komponentenstruktur, Mock-Daten und moderne UI-Cards.</p>
+      </div>
+    </article>
+
+    <article class="feature-card">
+      <img
+        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+        alt="Outdoor Landschaft für Running Route"
+      />
+      <div>
+        <h3>Running Routen</h3>
+        <p>Später mit Dashboard, Interessen-Auswahl und Karten-Placeholder.</p>
+      </div>
+    </article>
+
+    <article class="feature-card">
+      <img
+        src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"
+        alt="Person trainiert auf einer Matte"
+      />
+      <div>
+        <h3>Responsive UX</h3>
+        <p>Mobile-First SCSS, klare Abstände, moderne Typografie und Animation.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="recommendation-section">
+  <div class="recommendation-card">
+    <span class="eyebrow">Local AI Logic</span>
+    <h2>Smarte Empfehlungen</h2>
+    <p>
+      Diese Empfehlungen sind lokal berechnet und kommen später aus einem
+      Angular Service mit Mock-Daten.
+    </p>
+
+    <div class="recommendations">
+      @for (item of recommendations; track item.title) {
+        <article>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
